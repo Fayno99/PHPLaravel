@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class supervisor extends Model
 {
     protected $table = "Supervisor";
+
 }
