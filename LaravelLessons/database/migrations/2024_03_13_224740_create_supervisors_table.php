@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('Supervisor', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('supervisor_id')->nullable(false);
+            $table->unsignedBigInteger('employee_id')->nullable(false);
             $table->unsignedBigInteger('animals_id')->nullable(false);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
