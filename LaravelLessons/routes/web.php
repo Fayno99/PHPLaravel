@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/Animals');
 });
 
 Route::get('/dz26', function () {
@@ -36,7 +36,17 @@ Route::get('/Animals', [
 
 );
 
-Route::get('/Animals/Supervisors', [
+Route::get('/Food', [
+        \App\Http\Controllers\AnimalController::class, 'showFood']
+
+);
+
+Route::get('/Employer', [
+        \App\Http\Controllers\AnimalController::class, 'showEmployer']
+
+);
+
+Route::get('/Supervisors', [
         \App\Http\Controllers\EmployeeController::class, 'showSupervis']
 
 );
@@ -45,11 +55,19 @@ Route::get('/Animals/Supervisors', [
 Route::get('/Animals/{animal}', [
         \App\Http\Controllers\AnimalController::class, 'showAnimalFoodData'
     ]
-)->name('animal.dataFood');
+)->name('animal.dataKeyFoods');
 
 
-Route::get('/Animals/Supervisors/{employee}', [
-        \App\Http\Controllers\EmployeeController::class, 'showSupervisor'
+
+Route::get('/Supervisors/{employee}', [
+        \App\Http\Controllers\EmployeeController::class, 'SupervisorTest'
     ]
 ) ->name('employee.dataEmployee'
 );
+
+
+Route::get('/Animals/{animal}', [
+        \App\Http\Controllers\AnimalController::class, 'AnimalFoodTest']
+
+)->name('animal.dataKeyFoods');
+

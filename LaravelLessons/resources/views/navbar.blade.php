@@ -18,34 +18,23 @@
 <body>
 <nav class="ss-menu ">
     <ul>
-        <li><a href="#2"> <i class="fab fa-laravel"></i> 1</a></li>
+        <li><a href="/Animals"> <i class="fab fa-laravel"></i>Animal</a></li>
+        <li><a href="/Food"> <i class="fab fa-laravel"></i>Food</a></li>
+        <li><a href="/Employer"> <i class="fab fa-laravel"></i>Employer</a></li>
         <li><a href="#8"><i class="fas fa-address-book"></i> Contact</a></li>
         <li><a href="#9"><i class="fas fa-sign-in-alt"></i> Sign-in</a></li>
     </ul>
 </nav>
 
 <main class="container">
-    <h1>ДЗ 26</h1>
-    <h2>  @yield('Tittle')</h2>
+    <h1>ДЗ 27</h1>
+    <h2>  @yield('Tittle1')</h2>
     <div id="carbon-block" style="margin:0.1rem auto">
 
-          @yield('content')
-    </div>
-    <h2>  @yield('Tittle2')</h2>
-    <div id="carbon-block" style="margin:0.1rem auto">
+          @yield('content1')
 
-        @yield('content2')
     </div>
-    <h2>  @yield('Tittle3')</h2>
-    <div id="carbon-block" style="margin:0.1rem auto">
 
-        @yield('content3')
-    </div>
-    <h2>  @yield('Tittle4')</h2>
-    <div id="carbon-block" style="margin:0.1rem auto">
-
-        @yield('content4')
-    </div>
 </main>
 
 
