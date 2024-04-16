@@ -14,10 +14,60 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('/patterns');
+    return redirect('/Animals');
+});
+
+Route::get('/dz26', function () {
+    return view('navbar');
 });
 
 
+Route::get('/AnimalFood', function () {
+    return view('animalFood');
+});
 
-Route::get('/patterns', [\App\Http\Controllers\PatternController::class, 'index']);
+Route::get('/laravel', function () {
+    return ('Test message Laravel');
+});
+
+
+Route::get('/Animals', [
+        \App\Http\Controllers\AnimalController::class, 'showAllAnimal']
+
+);
+
+Route::get('/Food', [
+        \App\Http\Controllers\AnimalController::class, 'showFood']
+
+);
+
+Route::get('/Employer', [
+        \App\Http\Controllers\AnimalController::class, 'showEmployer']
+
+);
+
+Route::get('/Supervisors', [
+        \App\Http\Controllers\EmployeeController::class, 'showSupervis']
+
+);
+
+
+Route::get('/Animals/{animal}', [
+        \App\Http\Controllers\AnimalController::class, 'showAnimalFoodData'
+    ]
+)->name('animal.dataKeyFoods');
+
+
+
+Route::get('/Supervisors/{employee}', [
+        \App\Http\Controllers\EmployeeController::class, 'SupervisorTest'
+    ]
+) ->name('employee.dataEmployee'
+);
+
+
+Route::get('/Animals/{animal}', [
+        \App\Http\Controllers\AnimalController::class, 'AnimalFoodTest']
+
+)->name('animal.dataKeyFoods');
 
