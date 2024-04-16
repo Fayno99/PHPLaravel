@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Food extends Model
 {
     protected $table = "Food";
+    use HasFactory;
+    public $timestamps = false;
 
     public function animalFoods()
     {

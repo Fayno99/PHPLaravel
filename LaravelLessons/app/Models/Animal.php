@@ -7,20 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Animal extends Model
 {
+    use HasFactory;
   protected $table = "Animals";
+  protected $fillable = ['name'];
+  public $timestamps = false;
 
   public function dataFood()
 {
     return $this->hasMany(Food_animal::class);
 }
 
-public function dataKeyFoods()
+public function dataKeyFoods(): BelongsToMany
 {
 return $this->belongsToMany(Food::class,
     'Food_animal', 'animal_id','animal_feed_id');
 }
 
-    public function employe()
+    public function employe(): BelongsToMany
     {
         return $this->belongsToMany(Employee::class,
             'Supervisor', 'animals_id', 'Employee_id');

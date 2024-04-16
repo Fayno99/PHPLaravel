@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\App;
 
 class Employee extends Model
 {
+    use HasFactory;
     protected $table = "Employee";
-
+    public $timestamps = false;
+    protected $fillable = ['name'];
 
     public function TestAnimals()
     {
