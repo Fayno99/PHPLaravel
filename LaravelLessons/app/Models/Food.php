@@ -22,6 +22,15 @@ class Food extends Model
             'Food_animal', 'animal_feed_id', 'animal_id');
     }
 
+    public function export(): array
+    {
+        $animals = $this->dataKeyAnimal()->pluck('name')->toArray();
 
+        return [
+            'animal_feed' => $this->animal_feed,
+            'animals' => $animals,
+        ];
+
+    }
 
 }

@@ -61,7 +61,37 @@ class SupervisorTableTest extends TestCase
                // dd( $employee->name, $supervisors);
             }
 
+            $export =  $supervisor ->export();
+            // dd($export);
 
+            $this->assertIsArray($export);
+            $this->assertArrayHasKey('animal', $export);
+            $this->assertArrayHasKey('foods', $export);
+            $this->assertIsNotObject($export);
+            $this->assertNotEmpty($export);
+            $this->assertIsString($export['animal']);
+            $this->assertIsArray($export['foods']);
+
+            $exportEmploye =  $supervisor ->exportAnimalEmploye();
+            //  dd($exportEmploye);
+            $this->assertIsArray($exportEmploye);
+            $this->assertArrayHasKey('animal', $exportEmploye);
+            $this->assertArrayHasKey('supervisors', $exportEmploye);
+            $this->assertIsNotObject($exportEmploye);
+            $this->assertNotEmpty($exportEmploye);
+            $this->assertIsString($exportEmploye['animal']);
+            $this->assertIsArray($exportEmploye['supervisors']);
+
+            $exportEmployeAnimal =  $supervisor ->exportEmployeeAnimal();
+           // dd($exportEmployeAnimal);
+
+            $this->assertIsArray($exportEmployeAnimal);
+            $this->assertArrayHasKey('animal', $exportEmployeAnimal);
+            $this->assertArrayHasKey('supervisors', $exportEmployeAnimal);
+            $this->assertIsNotObject($exportEmployeAnimal);
+            $this->assertNotEmpty($exportEmployeAnimal);
+            $this->assertIsString($exportEmployeAnimal['supervisors']);
+            $this->assertIsArray($exportEmployeAnimal['animal']);
         }
     }
 }
