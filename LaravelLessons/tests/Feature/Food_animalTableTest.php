@@ -29,6 +29,8 @@ public function test_Food_animal_table__data_end_structure(): void
 
     $animal->refresh();
 
+
+
     $this->assertModelExists($food_animal);
     $this->assertArrayHasKey('animal_id', $food_animal->toArray());
     $this->assertArrayHasKey('animal_feed_id', $food_animal->toArray());
@@ -42,9 +44,24 @@ public function test_Food_animal_table__data_end_structure(): void
     $this->assertIsString($dataAnimal['name']);
     $this->assertIsNotString($dataAnimal['id']);
 
+
     foreach ($animal->dataKeyFoods as $food_animal) {
         $food_animals[] = $food_animal->animal_feed;
-       //dd( $animal->name, $food_animals);
+    $this->assertIsArray($food_animals);
+     //  dd( $animal->name, $food_animals);
+
     }
+
+    $export =  $food_animal ->export();
+    //  dd($export);
+
+    $this->assertIsArray($export);
+    $this->assertArrayHasKey('animals', $export);
+    $this->assertArrayHasKey('animal_feed', $export);
+    $this->assertIsNotObject($export);
+    $this->assertNotEmpty($export);
+    $this->assertIsString($export['animal_feed']);
+    $this->assertIsArray($export['animals']);
+
 }
 }

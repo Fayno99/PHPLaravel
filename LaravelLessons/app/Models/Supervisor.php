@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Supervisor extends Model
 {
@@ -12,5 +13,6 @@ class Supervisor extends Model
 
     protected $table = "Supervisor";
     protected $fillable = ['employee_id', 'animals_id'];
+
 
 }

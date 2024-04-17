@@ -29,4 +29,44 @@ return $this->belongsToMany(Food::class,
             'Supervisor', 'animals_id', 'Employee_id');
     }
 
+    public function export(): array
+    {
+        $animal_feeds = $this->dataKeyFoods()->pluck('animal_feed')->toArray();
+
+        return [
+            'animal' => $this->name,
+            'foods' => $animal_feeds,
+
+        ];
+
+    }
+    public function exportAnimalEmploye(): array
+    {
+        $supervisors = $this->employe()->pluck('name')->toArray();
+
+        return [
+            'animal' => $this->name,
+            'supervisors' => $supervisors,
+
+        ];
+
+    }
+    public function TestEmployeeAnimaltAnimal()
+    {
+        return $this->belongsToMany(Animal::class,
+            'Supervisor', 'Employee_id', 'animals_id');
+    }
+    public function exportEmployeeAnimal(): array
+    {
+        $animals = $this->TestEmployeeAnimaltAnimal()->pluck('name')->toArray();
+
+        return [
+            'supervisors' => $this->name,
+            'animal' =>$animals,
+
+        ];
+
+    }
+
+
 }

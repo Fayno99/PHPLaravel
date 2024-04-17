@@ -19,4 +19,17 @@ class Employee extends Model
             'Supervisor', 'Employee_id', 'animals_id');
     }
 
+    public function exportEmployeeAnimal(): array
+    {
+        $animals = $this->TestAnimals()->pluck('name')->toArray();
+
+        return [
+            'animal' =>$animals,
+            'supervisors' => $this->name,
+
+        ];
+
+    }
+
+
 }
